@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divas House | Moda Femenina de Bolivia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --pink: #e91e63;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(233 30 99 / 0.25);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #e91e63;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="logo.png" alt="Divas House Logo" class="h-12 w-auto">
+                    <div>
+                        <span class="logo-font text-3xl font-bold tracking-tight text-black">DIVAS</span>
+                        <span class="logo-font text-3xl font-bold tracking-tight text-pink-600">HOUSE</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 text-lg">
+                    <a href="#" class="nav-link font-medium">Inicio</a>
+                    <a href="#nosotros" class="nav-link font-medium">Nosotros</a>
+                    <a href="#productos" class="nav-link font-medium">Productos</a>
+                    <a href="#contacto" class="nav-link font-medium">Contacto</a>
+                </div>
+
+                <a href="#contacto" 
+                   class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 transition">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Pedir Catálogo</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-3xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="flex flex-col px-6 py-6 space-y-6 text-lg">
+                <a href="#" class="font-medium">Inicio</a>
+                <a href="#nosotros" class="font-medium">Nosotros</a>
+                <a href="#productos" class="font-medium">Productos</a>
+                <a href="#contacto" class="font-medium">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <img src="logo.png" alt="Divas House" class="mx-auto h-40 mb-8">
+            <h1 class="text-6xl md:text-7xl font-bold logo-font tracking-tighter mb-4">
+                DIVAS HOUSE
+            </h1>
+            <p class="text-2xl md:text-3xl mb-8">Fabricantes de Moda Femenina</p>
+            <p class="text-xl md:text-2xl max-w-2xl mx-auto">De Bolivia, para el Mundo</p>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contacto" 
+                   class="bg-white text-pink-600 hover:bg-pink-100 px-10 py-4 rounded-full text-xl font-semibold inline-flex items-center justify-center gap-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    Ver Catálogo
+                </a>
+                <a href="#productos" 
+                   class="border-2 border-white hover:bg-white hover:text-pink-600 px-10 py-4 rounded-full text-xl font-semibold transition">
+                    Ver Colección
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold logo-font text-gray-900 mb-6">Nuestra Historia</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Diseñamos moda con identidad y orgullo de nuestras raíces.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Transformamos sueños en productos de alta calidad que cruzan fronteras.
+                    </p>
+                    
+                    <div class="mt-10 grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-pink-600">100%</div>
+                            <div class="text-sm uppercase tracking-widest">Calidad</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-pink-600">🌎</div>
+                            <div class="text-sm uppercase tracking-widest">Exportamos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="logo.png" alt="Divas House" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center logo-font mb-4">Nuestra Colección</h2>
+            <p class="text-center text-xl text-gray-600 mb-12">Ropa femenina elegante para mayoristas</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <img src="logo.png" alt="Blazer Rojo" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">Blazer Elegante</h3>
+                        <p class="text-pink-600 font-medium">Mayorista desde $18</p>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <img src="logo.png" alt="Vestido" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">Vestidos Florales</h3>
+                        <p class="text-pink-600 font-medium">Mayorista desde $22</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <img src="logo.png" alt="Pantalones" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">Pantalones Wide</h3>
+                        <p class="text-pink-600 font-medium">Mayorista desde $15</p>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <img src="logo.png" alt="Blusa" class="w-full h-80 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">Blusas Premium</h3>
+                        <p class="text-pink-600 font-medium">Mayorista desde $12</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contacto" class="inline-flex items-center gap-3 bg-black text-white px-10 py-4 rounded-full text-xl hover:bg-pink-600 transition">
+                    <i class="fas fa-download"></i>
+                    Descargar Catálogo Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / REDES -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center logo-font mb-12">Conecta con Nosotros</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Instagram -->
+                <a href="#" class="group bg-gradient-to-br from-pink-500 to-purple-600 text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fab fa-instagram text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">@divashouse</span>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="#" class="group bg-black text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fab fa-tiktok text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">@divashouse</span>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="#" class="group bg-blue-600 text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fab fa-facebook text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">Divas House</span>
+                </a>
+                
+                <!-- WhatsApp 1 -->
+                <a href="https://wa.me/591XXXXXXXXX" class="group bg-green-500 text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fab fa-whatsapp text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">Ventas 1</span>
+                </a>
+                
+                <!-- WhatsApp 2 -->
+                <a href="https://wa.me/591XXXXXXXXX" class="group bg-green-600 text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fab fa-whatsapp text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">Ventas 2</span>
+                </a>
+                
+                <!-- Catálogo -->
+                <a href="#" class="group bg-purple-600 text-white p-8 rounded-3xl flex flex-col items-center justify-center hover:scale-105 transition">
+                    <i class="fas fa-book text-6xl mb-4"></i>
+                    <span class="font-semibold text-xl">Catálogo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-4">
+                    <img src="logo.png" alt="Divas House" class="h-16">
+                    <div class="logo-font text-3xl">DIVAS HOUSE</div>
+                </div>
+                
+                <div class="flex gap-6 text-3xl">
+                    <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-gray-400">Santa Cruz de la Sierra, Bolivia</p>
+                    <p class="text-xs text-gray-500 mt-6">
+                        © 2026 Divas House - Todos los derechos reservados<br>
+                        Creado por <span class="text-pink-400 font-medium">Jack Dainor</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Tailwind script already included
+    </script>
+</body>
+</html>
