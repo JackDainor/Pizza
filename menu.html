@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio | Pizza La Luciana</title>
+  <meta name="description" content="Cardápio completo de pizzas e esfihas da Pizza La Luciana. Monte seu pedido e envie pelo WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍕</span>
+        <span class="logo-text">Pizza La Luciana</span>
+      </a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="menu.html">Cardápio</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#contato">Contato</a>
+        <button class="cart-btn" onclick="openCart()">
+          🛒 Carrinho
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <h1>Nosso Cardápio</h1>
+    <p>Escolha seus favoritos, adicione ao carrinho e finalize pelo WhatsApp</p>
+  </div>
+
+  <section class="section" id="menu">
+    <div class="category-tabs">
+      <button class="tab active" data-category="all">Todos</button>
+      <button class="tab" data-category="pizza">Pizzas</button>
+      <button class="tab" data-category="esfiha-salgada">Esfihas Salgadas</button>
+      <button class="tab" data-category="esfiha-doce">Esfihas Doces</button>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>🍕 Pizza La Luciana</h3>
+        <p>Pizzas e esfihas com sabor de verdade. Peça já e receba em casa!</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5511966019490" target="_blank">📱 WhatsApp: (11) 96601-9490</a>
+        <p>📍 São Paulo - SP</p>
+      </div>
+      <div class="footer-col">
+        <h4>Horário</h4>
+        <p>Segunda a Domingo</p>
+        <p>18h às 23h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Formas de Pagamento</h4>
+        <p>💳 Cartão</p>
+        <p>📱 PIX</p>
+        <p>💵 Dinheiro</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Pizza La Luciana. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5511966019490" target="_blank" class="whatsapp-float" title="Fale conosco">💬</a>
+
+  <!-- Cart -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-sidebar">
+      <div class="cart-header">
+        <h2>🛒 Seu Carrinho</h2>
+        <button class="close-cart" onclick="closeCart()">×</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <div class="icon">🛒</div>
+          <p>Seu carrinho está vazio</p>
+          <p style="font-size: 0.85rem; margin-top: 8px;">Adicione itens do cardápio!</p>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">R$ 0,00</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn" disabled onclick="openCheckout()">Finalizar Pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Finalizar Pedido</h2>
+        <button class="close-cart" onclick="closeCheckout()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary" id="orderSummary"></div>
+        <form id="checkoutForm" onsubmit="submitOrder(event)">
+          <div class="form-group">
+            <label for="customerName">Nome completo *</label>
+            <input type="text" id="customerName" required placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label for="customerPhone">Telefone / WhatsApp *</label>
+            <input type="tel" id="customerPhone" required placeholder="(11) 99999-9999">
+          </div>
+          <div class="form-group">
+            <label for="street">Rua *</label>
+            <input type="text" id="street" required placeholder="Nome da rua">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="number">Número *</label>
+              <input type="text" id="number" required placeholder="123">
+            </div>
+            
+          </div>
+          <div class="form-row">
+            
+            <div class="form-group">
+              <label for="city">Cidade *</label>
+              <input type="text" id="city" required value="São Paulo" placeholder="Cidade">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Forma de pagamento *</label>
+            <div class="payment-options">
+              <div class="payment-option selected" data-payment="PIX" onclick="selectPayment(this)">
+                <div class="icon">📱</div><span>PIX</span>
+              </div>
+              <div class="payment-option" data-payment="Cartão" onclick="selectPayment(this)">
+                <div class="icon">💳</div><span>Cartão</span>
+              </div>
+              <div class="payment-option" data-payment="Dinheiro" onclick="selectPayment(this)">
+                <div class="icon">💵</div><span>Dinheiro</span>
+              </div>
+            </div>
+            <input type="hidden" id="paymentMethod" value="PIX">
+          </div>
+         
+          
+          <button type="submit" class="submit-order">📱 Enviar pedido no WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="menu.js"></script>
+</body>
+</html>
